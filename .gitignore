@@ -1,3 +1,7 @@
 .idea
 .vscode
-
+*.out
+go_build*
+__pycache__
+*workspace
+__debug*
