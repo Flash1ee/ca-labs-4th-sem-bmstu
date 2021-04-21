@@ -58,5 +58,4 @@ class Spline:
               c[pos] * (x - self.points[pos].x) ** 2 + \
               d[pos] * (x - self.points[pos].x) ** 3
 
-
         return Point(x, res)

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 class Point:
     x: float
     y: float
@@ -27,7 +26,6 @@ def read_points(fname: str) -> list[Point]:
             points.append(point)
 
     return points
-
 
 def print_points(points: list[Point]) -> None:
     print("{:^8} {:^8}".format('X', 'Y'))
