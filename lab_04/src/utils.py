@@ -27,7 +27,7 @@ def read_points(fname: str) -> list[Point]:
 
 def print_matrix(matrix: list[list[float]]) -> None:
     for row in matrix:
-        print(('[' + ' '.join(["{:8.3f}"] * len(row)) + ']').format(*row))
+        print(('[' + ' '.join(["{:8.3f}"] * len(row)) + ' ]').format(*row))
 
 def print_points(points: list[Point]) -> None:
     print("{:^8} {:^8} {:^8}".format('X', 'Y', "Weight"))
