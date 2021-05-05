@@ -1,14 +1,14 @@
 from math import cos, sin, exp, pi
 from scipy.special import roots_legendre
-from typing import Callable as Call
+from typing import Callable as Call, List
 
 
 class Integral:
-    def __init__(self, lm: list[list[float]], n: list[int], fn: list[int]):
+    def __init__(self, lm: List[List[float]], n: List[int], fn: List[int]):
         self.lm = lm
         self.n = n
-        self.func_one = Integral.simpson if (fn[0] == 1) else Integral.gauss
-        self.func_two = Integral.simpson if (fn[1] == 1) else Integral.gauss
+        self.func_one = Integral.simpson if (fn[0]) else Integral.gauss
+        self.func_two = Integral.simpson if (fn[1]) else Integral.gauss
 
     def __call__(self, p: float) -> float:
         f = Integral.__integrated(p)
@@ -20,7 +20,7 @@ class Integral:
 
     @staticmethod
     def simpson(f: Call[[float], float], a: float, b: float, n: int) -> float:
-        if n < 3 or not n % 2:
+        if n < 3 or not n % 2 == 0:
             raise Exception("Wrong value n")
 
         h = (b - a) / (n - 1.0)
@@ -41,5 +41,5 @@ class Integral:
 
     @staticmethod
     def __integrated(p: float) -> Call[[float, float], float]:
-        u = lambda x, y: 2 * cos(x) / (1 - sin(x) ** 2 * cos(y) ** 2)
-        return lambda x, y: 4 / pi * (1 - exp(-p * u(x, y))) * cos(x) * sin(x)
+        t = lambda x, y: 2 * cos(x) / (1 - sin(x) ** 2 * cos(y) ** 2)
+        return lambda x, y: 4 / pi * (1 - exp(-p * t(x, y))) * cos(x) * sin(x)

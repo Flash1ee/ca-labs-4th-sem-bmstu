@@ -26,11 +26,11 @@ def main() -> None:
 
         lm = [[0, pi / 2], [0, pi / 2]]
 
-        ints.append(integral.Integrate(lm, [ns[-1], ms[-1]], [md1s[-1], md2s[-1]]))
+        ints.append(integral.Integral(lm, [ns[-1], ms[-1]], [md1s[-1], md2s[-1]]))
 
-        print("Result with {:.2f} as a parameter is {:.5f}".format(tetta, ints[-1](tetta)))
+        print("Result with {} as a parameter is {:.5f}".format(tetta, ints[-1](param)))
 
-        end = input("If you want stop execution, entry not 0?: ")
+        terminate = input("If you want stop execution, entry not 0?: ")
     view.plot(ints, tetta, ns, ms, md1s, md2s)
 
 
