@@ -20,7 +20,7 @@ class Integral:
 
     @staticmethod
     def simpson(f: Call[[float], float], a: float, b: float, n: int) -> float:
-        if n < 3 or not n % 2 == 0:
+        if n < 3 or n % 2 == 0:
             raise Exception("Wrong value n")
 
         h = (b - a) / (n - 1.0)
